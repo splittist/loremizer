@@ -13,7 +13,9 @@ Note that **Loremizer** does **NOT** remove metadata from the document. This can
 ## Usage
 
 *function* **LOREMIZE** *infile* &key *outfile* *reset-dictionary*
+
 Replaces the text in *infile* (a `docx` file) with lorem ipsum text and writes the resulting `docx` file to *outfile* (which defaults to a path the same as *infile* with "Lorem-" prepended to the file name). If *reset-dictionary* is true, the dictionary tracking the mapping of *infile* words to lorem ipsum words will be cleared.
 
 *function* **RESET-DICTIONARY**
+
 Clears the dictionary tracking the mapping of input words to lorem ipsum words.
