@@ -9,3 +9,11 @@ Replace the text of Microsoft Word documents with *lorem ipsum* text.
 One possible use for **Loremizer** is to be able to share a document that has formatting issues while not sharing the confidential text of the document.
 
 Note that **Loremizer** does **NOT** remove metadata from the document. This can be done with Word's built-in [Document Inspector](https://support.microsoft.com/en-us/topic/remove-hidden-data-and-personal-information-by-inspecting-documents-presentations-or-workbooks-356b7b5d-77af-44fe-a07f-9aa4d085966f) feature.
+
+## Usage
+
+*function* **LOREMIZE** *infile* &key *outfile* *reset-dictionary*
+Replaces the text in *infile* (a `docx` file) with lorem ipsum text and writes the resulting `docx` file to *outfile* (which defaults to a path the same as *infile* with "Lorem-" prepended to the file name). If *reset-dictionary* is true, the dictionary tracking the mapping of *infile* words to lorem ipsum words will be cleared.
+
+*function* **RESET-DICTIONARY**
+Clears the dictionary tracking the mapping of input words to lorem ipsum words.

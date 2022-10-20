@@ -12,5 +12,5 @@
 	       #:alexandria
 	       #:cl-ppcre)
   :serial t
-  :components ((:file "package.lisp")
-	       (:file "loremizer.lisp")))
+  :components ((:file "package")
+	       (:file "loremizer")))

@@ -32,7 +32,7 @@ Standard lorem ipsum text:
 (defun replace-word (word)
   (alexandria:if-let ((translation (gethash (string-downcase word) *dictionary*)))
     (match-case word translation)
-    (let ((translation (aref *words* (random #.(length *words*)))))
+    (let ((translation (aref *words* (random (length *words*)))))
       (setf (gethash (string-downcase word) *dictionary*) translation)
       (match-case word translation))))
 
@@ -98,8 +98,8 @@ Standard lorem ipsum text:
 (defun reset-dictionary ()
   (clrhash *dictionary*))
 
-(defun loremize (infile &key outfile rest-dictionary-p)
-  (when reset-dictionary-p (clrhash *dictionary*))
+(defun loremize (infile &key outfile reset-dictionary)
+  (when reset-dictionary (clrhash *dictionary*))
   (let ((document (process-document (docxplora:open-document infile)))
 	(outfile (or outfile
 		     (merge-pathnames (format nil "Lorem-~A" (pathname-name infile))
