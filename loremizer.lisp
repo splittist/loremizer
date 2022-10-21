@@ -72,8 +72,11 @@ Standard lorem ipsum text:
 		 (process-word))))))
 
 (defun process-part (part)
-  (let ((text-nodes (mapcar #'plump:first-child
-			    (plump:get-elements-by-tag-name (opc:xml-root part) "w:t"))))
+  (let ((text-nodes (append
+		     (mapcar #'plump:first-child
+			     (plump:get-elements-by-tag-name (opc:xml-root part) "w:t"))
+		     (mapcar #'plump:first-child
+			     (plump:get-elements-by-tag-name (opc:xml-root part) "w:delText"))))) ;; FIXME
     (loop for node in text-nodes
 	  do (let ((original (plump:text node)))
 	       (setf (plump:text node)

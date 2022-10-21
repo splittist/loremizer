@@ -4,4 +4,5 @@
 
 (defpackage #:com.splittist.loremizer
   (:use #:cl)
-  (:export #:loremizer))
+  (:export #:loremize
+	   #:reset-dictionary))
